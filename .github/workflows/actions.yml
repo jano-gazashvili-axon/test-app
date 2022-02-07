@@ -4,11 +4,12 @@ on: [push, pull_request]
 
 jobs:
   run-staters:
+    name: Informative check
     runs-on: ubuntu-latest
     steps:
-      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
-      - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
-      - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
+      - run: echo 🎉 The job was automatically triggered by a ${{ github.event_name }} event.
+      - run: echo 🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!
+      - run: echo 🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}.
       - name: Check out repository code
         uses: actions/checkout@v2
 
@@ -17,15 +18,12 @@ jobs:
       runs-on: ubuntu-latest
 
       steps:
-        - name: Check out Git repository
-          uses: actions/checkout@v2
-
         - name: Set up Node.js
           uses: actions/setup-node@v1
           with:
-            node-version: 12
+            node-version: 14
 
-        # ESLint and Prettier must be in `package.json`
+        # ESLint must be in `package.json`
         - name: Install Node.js dependencies
           run: npm ci
 
@@ -33,3 +31,16 @@ jobs:
           uses: wearerequired/lint-action@v1
           with:
             eslint: true
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-node@v2
+      with:
+        node-version: '14'
+
+      - name: Install dependencies
+      - run: npm install
+
+      - name: Run build
+      - run: npm run build
