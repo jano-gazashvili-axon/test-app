@@ -8,8 +8,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Check out repository code
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
 
       - name: Job trigger
       - run: 🎉 The job was automatically triggered by a ${{ github.event_name }} event.
@@ -25,8 +24,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
+      - uses: actions/setup-node@v2
         with:
           node-version: "14"
 
@@ -34,7 +32,6 @@ jobs:
       - name: Install Node.js dependencies
       - run: npm ci
 
-      - name: Run linters
         uses: wearerequired/lint-action@v1
         with:
           eslint: true
@@ -44,8 +41,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
+      - uses: actions/setup-node@v2
         with:
           node-version: "14"
 
