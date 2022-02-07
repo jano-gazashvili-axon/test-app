@@ -32,7 +32,7 @@ jobs:
       - name: Install Node.js dependencies
       - run: npm ci
 
-        uses: wearerequired/lint-action@v1
+      - uses: wearerequired/lint-action@v1
         with:
           eslint: true
 
