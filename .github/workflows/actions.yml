@@ -27,8 +27,8 @@ jobs:
     steps:
       - name: Set up Node.js
         uses: actions/setup-node@v1
-        with:
-        node-version: 14
+          with:
+            node-version: 14
 
         # ESLint must be in `package.json`
       - name: Install Node.js dependencies
@@ -39,18 +39,18 @@ jobs:
         with:
         eslint: true
 
-  # run-build:
-  #   name: Install dependencies & run build
-  #   runs-on: ubuntu-latest
+  run-build:
+    name: Install dependencies & run build
+    runs-on: ubuntu-latest
 
-  #   steps:
-  #     - name: Set up Node.js
-  #       uses: actions/setup-node@v2
-  #         with:
-  #           node-version: 14
+    steps:
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+          with:
+            node-version: 14
 
-  #     - name: Install dependencies
-  #     - run: npm install
+      - name: Install dependencies
+      - run: npm install
 
-  #     - name: Run build
-  #     - run: npm run build
+      - name: Run build
+      - run: npm run build
