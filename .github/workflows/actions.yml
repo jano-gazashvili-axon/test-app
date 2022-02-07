@@ -32,7 +32,8 @@ jobs:
           with:
             eslint: true
 
-  build:
+  run-build:
+    name: Install dependencies & run build
     runs-on: ubuntu-latest
     steps:
         uses: actions/setup-node@v2
