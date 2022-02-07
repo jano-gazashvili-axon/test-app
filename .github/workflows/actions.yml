@@ -6,6 +6,7 @@ jobs:
   run-staters:
     name: Informative check
     runs-on: ubuntu-latest
+
     steps:
       - run: echo 🎉 The job was automatically triggered by a ${{ github.event_name }} event.
       - run: echo 🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!
@@ -14,31 +15,33 @@ jobs:
         uses: actions/checkout@v2
 
   run-linters:
-      name: Run linters
-      runs-on: ubuntu-latest
+    name: Run linters
+    runs-on: ubuntu-latest
 
-      steps:
-        - name: Set up Node.js
-          uses: actions/setup-node@v1
-          with:
-            node-version: 14
+    steps:
+      - name: Set up Node.js
+        uses: actions/setup-node@v1
+        with:
+        node-version: 14
 
         # ESLint must be in `package.json`
-        - name: Install Node.js dependencies
-          run: npm ci
+      - name: Install Node.js dependencies
+        run: npm ci
 
-        - name: Run linters
-          uses: wearerequired/lint-action@v1
-          with:
-            eslint: true
+      - name: Run linters
+        uses: wearerequired/lint-action@v1
+        with:
+        eslint: true
 
   run-build:
     name: Install dependencies & run build
     runs-on: ubuntu-latest
+
     steps:
+      - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-        node-version: '14'
+        node-version: 14
 
       - name: Install dependencies
       - run: npm install
