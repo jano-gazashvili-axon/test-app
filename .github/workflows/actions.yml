@@ -14,7 +14,7 @@ jobs:
         uses: actions/checkout@v2
 
   run-linters:
-    name: Run linters
+    name: Run linters & Build
     runs-on: ubuntu-latest
 
     steps:
@@ -31,16 +31,6 @@ jobs:
         uses: wearerequired/lint-action@v1
         with:
           eslint: true
-
-  run-build:
-    name: Run linters
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Set up Node.js
-        uses: actions/setup-node@v1
-        with:
-          node-version: 14
 
       - name: Run build
       - run: npm run build
